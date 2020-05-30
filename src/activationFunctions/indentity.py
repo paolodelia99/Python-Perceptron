@@ -3,8 +3,8 @@ from .activation_function import ActivationFunction
 
 class Identity(ActivationFunction):
 
-    def __init__(self, a):
-        super().__init__(a)
+    def __init__(self):
+        self.is_diff = False
 
-    def compute(self):
+    def compute(self, a):
         return self.a
