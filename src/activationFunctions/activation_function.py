@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class ActivationFunction(ABC):
 
     def __init__(self):
-        pass
+        self.is_diff = None
 
     @abstractmethod
     def compute(self, a):
