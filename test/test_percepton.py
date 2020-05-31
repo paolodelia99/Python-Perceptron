@@ -16,6 +16,9 @@ def test_precepton_101():
 
 
 def test_preceptron_102():
+    """
+    Test perceptron with a simple data set using Heaviside as a activation function
+    """
     dataset = [[2.7810836, 2.550537003, 0],
                [1.465489372, 2.362125076, 0],
                [3.396561688, 4.400293529, 0],

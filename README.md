@@ -2,6 +2,16 @@
 
 An Basic implementation of the perceptron, the build block a neural net.
 
+## Usage
+
+Clone the repo:
+
+    git clone https://github.com/paolodelia99/Python-Perceptron.git
+    
+```python
+
+
+```
 
 
 ## What is a Percepton

@@ -43,7 +43,7 @@ class Perceptron(object):
         # Check if the activation function is differentiable
         if self.act_fn.is_diff:
             self.weights = [
-                i - self.learning_rate * error * self.act_fn.compute_derivative(np.dot(self.weights, x) + self.bias) * j
+                i + self.learning_rate * error * self.act_fn.compute_derivative(np.dot(self.weights, x) + self.bias) * j
                 for i, j in zip(self.w, x)]
         else:
             self.weights = [i + self.learning_rate * error * j for i, j in zip(self.weights, x)]
