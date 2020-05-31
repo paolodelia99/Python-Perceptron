@@ -35,10 +35,10 @@ boolean **XOR** problem.
 
 ![lin_space](./assets/img/linearly_and_non_linearly_space.png)
 
-# Author
+## Author
 
 Paolo D'Elia
 
-# License 
+## License 
 
 MIT

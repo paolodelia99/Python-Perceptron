@@ -11,7 +11,8 @@ class Sigmoid(ActivationFunction):
         self.is_diff = True
 
     def compute(self, a):
-        """Compute the output of the sigmoid operation
+        """
+        Compute the sigmoid function on the given value
 
         :return the computed value given of the constructor
         """
@@ -19,8 +20,8 @@ class Sigmoid(ActivationFunction):
 
     def compute_derivative(self, a):
         """
+        Compute the derivative of the sigmoid function on the given value
 
-
-        :return:
+        :return: the value calculated on the derivative of the sigmoid
         """
         return self.compute(a) * (1 - self.compute(a))
