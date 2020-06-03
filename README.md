@@ -9,41 +9,29 @@ Clone the repo:
     git clone https://github.com/paolodelia99/Python-Perceptron.git
     
 ```python
+from src.perceptron import Perceptron
+from src.activationFunctions.heaviside import Heaviside
 
+dataset = [[2.7810836, 2.550537003, 0],
+               [1.465489372, 2.362125076, 0],
+               [3.396561688, 4.400293529, 0],
+               [1.38807019, 1.850220317, 0],
+               [3.06407232, 3.005305973, 0],
+               [7.627531214, 2.759262235, 1],
+               [5.332441248, 2.088626775, 1],
+               [6.922596716, 1.77106367, 1],
+               [8.675418651, -0.242068655, 1],
+               [7.673756466, 3.508563011, 1]]
+
+p = Perceptron(2, Heaviside(), 0.1)
+p.train(dataset, 10)
+
+for d in dataset():
+    assert p.evaluate(d[0], d[1]) == d[2]
 
 ```
 
-
-## What is a Percepton
-
-A percepton is a type of binary classifier. A binary classfier is a function
-which can be decide weather or not an input, represented by a vector of numbers,
-belong to a specific class. 
-
-The perceptron maps its input **x** ( a real value vector ) to an output value **f(x)** ( a single binary value ):
-
-<img src="http://www.sciweavers.org/tex2img.php?eq=f%28x%29%20%3D%20%5Cchi%20%28%5Clangle%20w%2C%20x%20%5Crangle%20%2B%20b%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="f(x) = \chi (\langle w, x \rangle + b)" width="164" height="19" />
-
-where **w** is the vector of the weights with real value, **< , >** is the scalar product,
-**b** is the bias,  a constant term that doesn't dipend on any input value and **χ(x)** is the output fuction, also called 
-activation function. 
-The most common choices for **χ(x)** are:
-
-- **χ(x)** = **sing(x)**
-- **χ(x)** = **Θ(x)**
-- **χ(x)** = **x**
-
-where Θ(x) is the Heavside Function.
-
-![perceptron](./assets/img/perceptron.png)
-
-
-The perceptron works weel when the learning set is linearly separable, while when the learning isn't linearly separable
-its learning algorithm doesn't terminate. If the vector are not linearly separable will never reach a point where all vectors are 
-classified properly. The most famous example of perceptron inability to solve problems with linearly separable vector is the 
-boolean **XOR** problem.
-
-![lin_space](./assets/img/linearly_and_non_linearly_space.png)
+For info about the what is the preceptron check out the [notebook](./demo/What_is_a_perceptron.ipynb) with the fully explanation.
 
 ## Author
 
