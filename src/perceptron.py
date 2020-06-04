@@ -4,7 +4,9 @@ import numpy as np
 
 
 class Perceptron(object):
-    """Class representing the Percepton"""
+    """
+    Class representing the Percepton
+    """
 
     def __init__(self, no_input: int, act_fn: ActivationFunction, learining_rate: float):
         """
@@ -50,7 +52,7 @@ class Perceptron(object):
 
     def train(self, data, n_epoch=10):
         """
-        Just a draft f what would be the training algo
+        Train the perceptron
 
         :argument n_epoch: number of iteration
         :argument data the data used to train the precepton

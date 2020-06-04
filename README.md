@@ -33,9 +33,15 @@ for d in dataset():
 
 For info about the what is the preceptron check out the [notebook](./demo/What_is_a_perceptron.ipynb) with the fully explanation.
 
+If you wanna see more about how to use the perceptron checkout the [demos](./demo).
+
 ## Author
 
 Paolo D'Elia
+
+## Contributing
+
+Feel free report issues and contribute to the project, making it better.
 
 ## License 
 
