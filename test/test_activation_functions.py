@@ -3,7 +3,10 @@ from src.activationFunctions.sgn import Sign
 from src.activationFunctions.heaviside import Heaviside
 from src.activationFunctions.indentity import Identity
 from src.activationFunctions.sigmoid import Sigmoid
+from src.activationFunctions.relu import ReLU
+from src.activationFunctions.softmax import SoftMax
 from src.activationFunctions.activation_function import ActivationFunction
+import numpy as np
 
 
 def test_act_fn_101():
@@ -54,3 +57,21 @@ def test_sigmoid_fn():
     nose.tools.assert_is_instance(fn, Sigmoid)
     nose.tools.assert_equal(fn.compute(0), 0.5)
     nose.tools.assert_equal(fn.compute_derivative(0), 0.25)
+
+
+def test_relu():
+    """Test ReLU function"""
+    fn = ReLU()
+    nose.tools.assert_is_instance(fn, ActivationFunction)
+    nose.tools.assert_is_instance(fn, ReLU)
+    nose.tools.assert_equal(fn.compute(sum([1, 2, 3, 4, 5])), 15)
+    nose.tools.assert_equal(fn.compute(-1), 0)
+    nose.tools.assert_equal(fn.compute_derivative(sum([1, 2, 3, 4, 5])), 1)
+    nose.tools.assert_equal(fn.compute_derivative(-1), 0)
+
+
+def test_softmax():
+    fn = SoftMax()
+    nose.tools.assert_is_instance(fn, ActivationFunction)
+    nose.tools.assert_is_instance(fn, SoftMax)
+    np.allclose(fn.compute(np.array([1, 2, 3, 4, 1, 2, 3])), np.array([0.024, 0.064, 0.175, 0.475, 0.024, 0.064, 0.175]))

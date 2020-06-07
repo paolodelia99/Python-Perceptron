@@ -2,17 +2,18 @@ from .activation_function import ActivationFunction
 
 
 class ReLU(ActivationFunction):
-    """Returns the sigmoid of x element-wise.
+    """
+    Class representing the ReLU function
     """
 
     def __init__(self):
-        """Construct of the sigmoid"""
+        """Construct of the ReLU"""
         super().__init__()
         self.is_diff = True
 
     def compute(self, a):
         """
-        Compute the sigmoid function on the given value
+        Compute the ReLU function on the given value
 
         :return the computed value given of the constructor
         """
@@ -20,7 +21,7 @@ class ReLU(ActivationFunction):
 
     def compute_derivative(self, a):
         """
-        Compute the derivative of the sigmoid function on the given value
+        Compute the derivative of the ReLU function on the given value
 
         :return: the value calculated on the derivative of the sigmoid
         """
