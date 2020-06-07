@@ -30,8 +30,8 @@ def test_preceptron_102():
                [8.675418651, -0.242068655, 1],
                [7.673756466, 3.508563011, 1]]
     p = Perceptron(2, Heaviside(), 0.1)
-    p.train(dataset, 10)
+    p.train(dataset, 3, 30)
 
     for d in dataset:
-        nose.tools.assert_equal(p.evaluate([d[0],d[1]]), d[2])
+        nose.tools.assert_equal(p.evaluate([d[0], d[1]]), d[2])
 

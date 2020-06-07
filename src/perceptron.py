@@ -35,31 +35,53 @@ class Perceptron(object):
 
         return self.act_fn.compute(weighted_sum)
 
-    def update_weights(self, x, error):
+    def update_weights(self, x, error, n):
         """
         Update the perceptron weight based on the inputs and the error
 
         :param x: The inputs
         :param error: the estimated error
+        :param n: the batch size
         """
         # Check if the activation function is differentiable
         if self.act_fn.is_diff:
             self.weights = [
-                i + self.learning_rate * error * self.act_fn.compute_derivative(np.dot(self.weights, x) + self.bias) * j
+                i + (self.learning_rate / n) * error * self.act_fn.compute_derivative(np.dot(self.weights, x) + self.bias) * j
                 for i, j in zip(self.weights, x)]
         else:
-            self.weights = [i + self.learning_rate * error * j for i, j in zip(self.weights, x)]
+            self.weights = [i + (self.learning_rate / n) * error * j for i, j in zip(self.weights, x)]
 
-    def train(self, data, n_epoch=10):
+    def update_mini_batch(self, mini_batch):
         """
-        Train the perceptron
+        Update the perceptron's weights and bias by applying gradient descent
+        using the delta rule to a single mini batch
 
-        :argument n_epoch: number of iteration
-        :argument data the data used to train the precepton
+        :param mini_batch the mini batch
         """
+        for x in mini_batch:
+            prediction = self.evaluate(x[0: len(self.weights)])
+            error = x[-1] - prediction
+            self.bias = self.bias + self.learning_rate/len(mini_batch) * error  # update the bias
+            self.update_weights(x, error, len(mini_batch))  # update the weights
+
+    def train(self, training_data, mini_batches_size, n_epoch=30):
+        """
+        Train the perceptron using mini batch stocastic gradient descend
+
+        :param training_data the data used to train the preceptron that will be divide in mini batches
+        :param mini_batches_size the size of the mini batch
+        :param n_epoch: number of iteration
+        """
+
+        n = len(training_data)
         for epoch in range(n_epoch):
-            for row in data:
-                prediction = self.evaluate(row[0: len(self.weights)])
-                error = row[-1] - prediction
-                self.bias = self.bias + self.learning_rate * error  # update the bias
-                self.update_weights(row, error)  # update the weights
+
+            # randomize the training data and create mini_batches
+            random.shuffle(training_data)
+            mini_batches = [
+                training_data[k:k + mini_batches_size]
+                for k in range(0, n, mini_batches_size)
+            ]
+
+            for mini_batch in mini_batches:
+                self.update_mini_batch(mini_batch)
