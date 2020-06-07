@@ -9,3 +9,7 @@ __pycache__
 
 #modified sonar dataset
 /demo/data/mod_sonar.csv
+
+# things that I've tested with tf
+test_sciklearn.py
+test_tf.py
