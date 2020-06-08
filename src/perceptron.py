@@ -8,19 +8,19 @@ class Perceptron(object):
     Class representing the Percepton
     """
 
-    def __init__(self, no_input: int, act_fn: ActivationFunction, learining_rate: float):
+    def __init__(self, no_input: int, act_fn: ActivationFunction, lr: float):
         """
         Perceptron constructor
 
-        :argument no_input the number of the input of the percepton
-        :argument act_fn the activation function of the percepton
-        :argument learining_rate: the learning rate of the perceptron
+        :param no_input the number of the input of the percepton
+        :param act_fn the activation function of the percepton
+        :param lr: the learning rate of the perceptron
         """
         self.no_input = no_input
         self.bias = random.random()
         self.weights = [random.random() for _ in range(no_input)]
-        self.act_fn = act_fn
-        self.learning_rate = learining_rate
+        self.act_fn = act_fn  # the activation function
+        self.lr = lr  # the learning rate
 
     def evaluate(self, inputs):
         """
@@ -46,10 +46,10 @@ class Perceptron(object):
         # Check if the activation function is differentiable
         if self.act_fn.is_diff:
             self.weights = [
-                i + (self.learning_rate / n) * error * self.act_fn.compute_derivative(np.dot(self.weights, x) + self.bias) * j
+                i + (self.lr / n) * error * self.act_fn.compute_derivative(np.dot(self.weights, x) + self.bias) * j
                 for i, j in zip(self.weights, x)]
         else:
-            self.weights = [i + (self.learning_rate / n) * error * j for i, j in zip(self.weights, x)]
+            self.weights = [i + (self.lr / n) * error * j for i, j in zip(self.weights, x)]
 
     def update_mini_batch(self, mini_batch):
         """
@@ -61,7 +61,7 @@ class Perceptron(object):
         for x in mini_batch:
             prediction = self.evaluate(x[0: len(self.weights)])
             error = x[-1] - prediction
-            self.bias = self.bias + self.learning_rate/len(mini_batch) * error  # update the bias
+            self.bias = self.bias + self.lr / len(mini_batch) * error  # update the bias
             self.update_weights(x, error, len(mini_batch))  # update the weights
 
     def train(self, training_data, mini_batches_size, n_epoch=30):

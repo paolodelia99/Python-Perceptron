@@ -7,6 +7,7 @@ An Basic implementation of the perceptron, the build block a neural net.
 Clone the repo:
 
     git clone https://github.com/paolodelia99/Python-Perceptron.git
+    cd Python-Perceptron
     
 ```python
 from src.perceptron import Perceptron

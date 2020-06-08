@@ -9,7 +9,7 @@ def test_precepton_101():
     """Test percepton istantiation"""
     p = Perceptron(3, Sign(), 0.1)
     nose.tools.assert_is_instance(p, Perceptron)
-    nose.tools.assert_is_instance(p.learning_rate, float)
+    nose.tools.assert_is_instance(p.lr, float)
     nose.tools.assert_is_instance(p.act_fn, ActivationFunction)
     nose.tools.assert_is_instance(p.weights, list)
     nose.tools.assert_is_instance(p.bias, float)
