@@ -1,4 +1,5 @@
 from src.functions.function import Function
+from typing import Tuple
 
 
 class MeanAbsErr(Function):
@@ -7,7 +8,7 @@ class MeanAbsErr(Function):
         super(MeanAbsErr, self).__init__()
         self.is_diff = True
 
-    def compute(self, y: tuple):
+    def compute(self, y: Tuple[float, float]):
         return abs(y[0] - y[1])
 
     def compute_derivative(self, a) -> int:
