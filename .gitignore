@@ -5,7 +5,7 @@
 venv
 env
 
-/__pycache__/
+*/__pycache__/*
 
 #modified sonar dataset
 /demo/data/mod_sonar.csv
