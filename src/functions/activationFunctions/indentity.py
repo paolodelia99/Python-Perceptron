@@ -1,7 +1,7 @@
-from .activation_function import ActivationFunction
+from src.functions.function import Function
 
 
-class Identity(ActivationFunction):
+class Identity(Function):
     """
         Class representing the Identity function
     """

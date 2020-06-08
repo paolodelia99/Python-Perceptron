@@ -1,7 +1,7 @@
-from .activation_function import ActivationFunction
+from src.functions.function import Function
 
 
-class Sign(ActivationFunction):
+class Sign(Function):
     """
         Class representing the Sign function
     """

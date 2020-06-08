@@ -1,25 +1,18 @@
 import nose
-from src.activationFunctions.sgn import Sign
-from src.activationFunctions.heaviside import Heaviside
-from src.activationFunctions.indentity import Identity
-from src.activationFunctions.sigmoid import Sigmoid
-from src.activationFunctions.relu import ReLU
-from src.activationFunctions.softmax import SoftMax
-from src.activationFunctions.activation_function import ActivationFunction
+from src.functions.activationFunctions.sgn import Sign
+from src.functions.activationFunctions.heaviside import Heaviside
+from src.functions.activationFunctions.indentity import Identity
+from src.functions.activationFunctions.sigmoid import Sigmoid
+from src.functions.activationFunctions.relu import ReLU
+from src.functions.activationFunctions.softmax import SoftMax
+from src.functions.function import Function
 import numpy as np
-
-
-def test_act_fn_101():
-    """Test percepton istantiation"""
-    fn = ActivationFunction()
-    nose.tools.assert_is_instance(fn, ActivationFunction)
-    nose.tools.assert_equal(fn.is_diff, None)
 
 
 def test_sing_fn():
     """Test sign function"""
     fn = Sign()
-    nose.tools.assert_is_instance(fn, ActivationFunction)
+    nose.tools.assert_is_instance(fn, Function)
     nose.tools.assert_is_instance(fn, Sign)
     nose.tools.assert_false(fn.is_diff)
     nose.tools.assert_equal(fn.compute(10), 1)
@@ -30,7 +23,7 @@ def test_sing_fn():
 def test_heavside_fn():
     """Test Heaviside function"""
     fn = Heaviside()
-    nose.tools.assert_is_instance(fn, ActivationFunction)
+    nose.tools.assert_is_instance(fn, Function)
     nose.tools.assert_is_instance(fn, Heaviside)
     nose.tools.assert_false(fn.is_diff)
     nose.tools.assert_equal(fn.compute(10), 1)
@@ -41,7 +34,7 @@ def test_heavside_fn():
 def test_identity_fn():
     """Test Identity function"""
     fn = Identity()
-    nose.tools.assert_is_instance(fn, ActivationFunction)
+    nose.tools.assert_is_instance(fn, Function)
     nose.tools.assert_is_instance(fn, Identity)
     nose.tools.assert_true(fn.is_diff)
     nose.tools.assert_equal(fn.compute(10), 10)
@@ -53,7 +46,7 @@ def test_identity_fn():
 def test_sigmoid_fn():
     """Test the sigmoid function"""
     fn = Sigmoid()
-    nose.tools.assert_is_instance(fn, ActivationFunction)
+    nose.tools.assert_is_instance(fn, Function)
     nose.tools.assert_is_instance(fn, Sigmoid)
     nose.tools.assert_equal(fn.compute(0), 0.5)
     nose.tools.assert_equal(fn.compute_derivative(0), 0.25)
@@ -62,7 +55,7 @@ def test_sigmoid_fn():
 def test_relu():
     """Test ReLU function"""
     fn = ReLU()
-    nose.tools.assert_is_instance(fn, ActivationFunction)
+    nose.tools.assert_is_instance(fn, Function)
     nose.tools.assert_is_instance(fn, ReLU)
     nose.tools.assert_equal(fn.compute(sum([1, 2, 3, 4, 5])), 15)
     nose.tools.assert_equal(fn.compute(-1), 0)
@@ -72,6 +65,7 @@ def test_relu():
 
 def test_softmax():
     fn = SoftMax()
-    nose.tools.assert_is_instance(fn, ActivationFunction)
+    nose.tools.assert_is_instance(fn, Function)
     nose.tools.assert_is_instance(fn, SoftMax)
-    np.allclose(fn.compute(np.array([1, 2, 3, 4, 1, 2, 3])), np.array([0.024, 0.064, 0.175, 0.475, 0.024, 0.064, 0.175]))
+    np.allclose(fn.compute(np.array([1, 2, 3, 4, 1, 2, 3])),
+                np.array([0.024, 0.064, 0.175, 0.475, 0.024, 0.064, 0.175]))

@@ -1,5 +1,5 @@
 import random
-from src.activationFunctions.activation_function import ActivationFunction
+from src.functions.function import Function
 import numpy as np
 
 
@@ -8,7 +8,7 @@ class Perceptron(object):
     Class representing the Percepton
     """
 
-    def __init__(self, no_input: int, act_fn: ActivationFunction, lr: float):
+    def __init__(self, no_input: int, lr: float, act_fn: Function, cost_fn: Function):
         """
         Perceptron constructor
 
@@ -20,6 +20,7 @@ class Perceptron(object):
         self.bias = random.random()
         self.weights = [random.random() for _ in range(no_input)]
         self.act_fn = act_fn  # the activation function
+        self.cost_fn = cost_fn
         self.lr = lr  # the learning rate
 
     def evaluate(self, inputs):
@@ -60,7 +61,7 @@ class Perceptron(object):
         """
         for x in mini_batch:
             prediction = self.evaluate(x[0: len(self.weights)])
-            error = x[-1] - prediction
+            error = self.cost_fn.compute_derivative((x[-1], prediction))
             self.bias = self.bias + self.lr / len(mini_batch) * error  # update the bias
             self.update_weights(x, error, len(mini_batch))  # update the weights
 

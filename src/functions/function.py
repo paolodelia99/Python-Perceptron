@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class ActivationFunction(ABC):
+class Function(ABC):
 
     def __init__(self):
         self.is_diff = None

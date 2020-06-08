@@ -1,7 +1,7 @@
-from .activation_function import ActivationFunction
+from src.functions.function import Function
 
 
-class Heaviside(ActivationFunction):
+class Heaviside(Function):
     """
     Class representing the Heaviside function
     """

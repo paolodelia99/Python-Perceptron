@@ -11,7 +11,7 @@ Clone the repo:
     
 ```python
 from src.perceptron import Perceptron
-from src.activationFunctions.heaviside import Heaviside
+from src.functions.activationFunctions.heaviside import Heaviside
 
 dataset = [[2.7810836, 2.550537003, 0],
                [1.465489372, 2.362125076, 0],

@@ -1,8 +1,8 @@
-from .activation_function import ActivationFunction
+from src.functions.function import Function
 import numpy as np
 
 
-class SoftMax(ActivationFunction):
+class SoftMax(Function):
     """
     Class representing the softmax function
     """

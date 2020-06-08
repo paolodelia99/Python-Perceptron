@@ -1,8 +1,8 @@
 import numpy as np
-from .activation_function import ActivationFunction
+from src.functions.function import Function
 
 
-class Sigmoid(ActivationFunction):
+class Sigmoid(Function):
     """Returns the sigmoid of x element-wise.
     """
 

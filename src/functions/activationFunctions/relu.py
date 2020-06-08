@@ -1,7 +1,7 @@
-from .activation_function import ActivationFunction
+from src.functions.function import Function
 
 
-class ReLU(ActivationFunction):
+class ReLU(Function):
     """
     Class representing the ReLU function
     """
