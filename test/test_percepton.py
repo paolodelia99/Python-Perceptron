@@ -2,13 +2,13 @@ import nose
 from src.perceptron import Perceptron
 from src.functions.activationFunctions.sgn import Sign
 from src.functions.activationFunctions.heaviside import Heaviside
-from src.functions.errorFunctions.mean_square_error import MeanSquareErr
+from src.functions.errorFunctions.quadratic_loss import QuadraticLoss
 from src.functions.function import Function
 
 
 def test_precepton_101():
     """Test percepton istantiation"""
-    p = Perceptron(3, 0.1, Sign(), MeanSquareErr())
+    p = Perceptron(3, 0.1, Sign(), QuadraticLoss())
     nose.tools.assert_is_instance(p, Perceptron)
     nose.tools.assert_is_instance(p.lr, float)
     nose.tools.assert_is_instance(p.act_fn, Function)
@@ -30,7 +30,7 @@ def test_preceptron_102():
                [6.922596716, 1.77106367, 1],
                [8.675418651, -0.242068655, 1],
                [7.673756466, 3.508563011, 1]]
-    p = Perceptron(2, 0.1, Heaviside(), MeanSquareErr())
+    p = Perceptron(2, 0.1, Heaviside(), QuadraticLoss())
     p.train(dataset, 3, 30)
 
     for d in dataset:

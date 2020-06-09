@@ -2,10 +2,10 @@ from src.functions.function import Function
 from typing import Tuple
 
 
-class MeanSquareErr(Function):
+class QuadraticLoss(Function):
 
     def __init__(self):
-        super(MeanSquareErr, self).__init__()
+        super(QuadraticLoss, self).__init__()
         self.is_diff = True
 
     def compute(self, y: Tuple[float, float]) -> float:

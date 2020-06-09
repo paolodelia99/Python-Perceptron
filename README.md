@@ -12,7 +12,7 @@ Clone the repo:
 ```python
 from src.perceptron import Perceptron
 from src.functions.activationFunctions.heaviside import Heaviside
-from src.functions.errorFunctions.mean_square_error import MeanSquareErr
+from src.functions.errorFunctions.quadratic_loss import QuadraticLoss
 
 dataset = [[2.7810836, 2.550537003, 0],
                [1.465489372, 2.362125076, 0],
@@ -25,7 +25,7 @@ dataset = [[2.7810836, 2.550537003, 0],
                [8.675418651, -0.242068655, 1],
                [7.673756466, 3.508563011, 1]]
 
-p = Perceptron(2, 0.1, Heaviside(), MeanSquareErr())
+p = Perceptron(2, 0.1, Heaviside(), QuadraticLoss())
 p.train(dataset, 3, 30)
 
 for d in dataset:
