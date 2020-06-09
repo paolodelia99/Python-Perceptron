@@ -1,6 +1,11 @@
 # Python-Perceptron
 
+![language](https://img.shields.io/badge/language-python-blue)
+![license](https://img.shields.io/badge/license-MIT-orange)
+
 An Basic implementation of the perceptron, the build block a neural net.
+
+![perceptron](./assets/img/perceptron_350_328.png)
 
 ## Usage
 
@@ -9,10 +14,12 @@ Clone the repo:
     git clone https://github.com/paolodelia99/Python-Perceptron.git
     cd Python-Perceptron
     
+## Example
+    
 ```python
 from src.perceptron import Perceptron
 from src.functions.activationFunctions.heaviside import Heaviside
-from src.functions.errorFunctions.quadratic_loss import QuadraticLoss
+from src.functions.lossFunctions.quadratic_loss import QuadraticLoss
 
 dataset = [[2.7810836, 2.550537003, 0],
                [1.465489372, 2.362125076, 0],
@@ -33,7 +40,7 @@ for d in dataset:
 
 ```
 
-For info about the what is the preceptron check out the [notebook](./demo/What_is_a_perceptron.ipynb) with the fully explanation.
+To find out more about the math behind the perceptron, check out the [notebook](./demo/What_is_a_perceptron.ipynb) with the fully explanation.
 
 If you wanna see more about how to use the perceptron checkout the [demos](./demo).
 

@@ -2,7 +2,7 @@ import nose
 from src.perceptron import Perceptron
 from src.functions.activationFunctions.sgn import Sign
 from src.functions.activationFunctions.heaviside import Heaviside
-from src.functions.errorFunctions.quadratic_loss import QuadraticLoss
+from src.functions.lossFunctions.quadratic_loss import QuadraticLoss
 from src.functions.function import Function
 
 

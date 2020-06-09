@@ -18,6 +18,7 @@ class Perceptron(object):
         """
         self.no_input = no_input
         self.bias = random.random()
+        np.random.random_sample(10)
         self.weights = [random.random() for _ in range(no_input)]
         self.act_fn = act_fn  # the activation function
         self.cost_fn = cost_fn
@@ -46,11 +47,12 @@ class Perceptron(object):
         """
         # Check if the activation function is differentiable
         if self.act_fn.is_diff:
+            x1 = x[0:self.no_input]
             self.weights = [
-                i + (self.lr / n) * error * self.act_fn.compute_derivative(np.dot(self.weights, x) + self.bias) * j
-                for i, j in zip(self.weights, x)]
+                i + ((self.lr / n) * error * self.act_fn.compute_derivative(np.dot(self.weights, x[0:self.no_input])) * j)
+                for i, j in zip(self.weights, x[0:self.no_input+1])]
         else:
-            self.weights = [i + (self.lr / n) * error * j for i, j in zip(self.weights, x)]
+            self.weights = [i + (self.lr / n) * error * j for i, j in zip(self.weights, x[0:self.no_input])]
 
     def update_mini_batch(self, mini_batch):
         """

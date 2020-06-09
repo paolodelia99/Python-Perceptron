@@ -1,8 +1,8 @@
 import nose
 from src.functions.function import Function
-from src.functions.errorFunctions.mean_abs_error import MeanAbsErr
-from src.functions.errorFunctions.quadratic_loss import QuadraticLoss
-from src.functions.errorFunctions.cross_entropy import CrossEntropy
+from src.functions.lossFunctions.mean_abs_error import MeanAbsErr
+from src.functions.lossFunctions.quadratic_loss import QuadraticLoss
+from src.functions.lossFunctions.cross_entropy import CrossEntropy
 
 
 def test_mean_square_error():
