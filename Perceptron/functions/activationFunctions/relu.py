@@ -1,4 +1,4 @@
-from src.functions.function import Function
+from Perceptron.functions.function import Function
 
 
 class ReLU(Function):

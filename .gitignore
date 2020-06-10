@@ -5,7 +5,10 @@
 venv
 env
 
+#pycache
 */__pycache__/*
+__pycache__
+/__pycache__/
 
 #modified sonar dataset
 /demo/data/mod_sonar.csv
@@ -13,3 +16,10 @@ env
 # things that I've tested with tf
 test_sciklearn.py
 test_tf.py
+
+PyPerceptron.egg-info
+
+dist
+build
+
+MANIFEST

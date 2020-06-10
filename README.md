@@ -9,17 +9,22 @@ An Basic implementation of the perceptron, the build block a neural net.
 
 ## Usage
 
-Clone the repo:
-
-    git clone https://github.com/paolodelia99/Python-Perceptron.git
-    cd Python-Perceptron
+    pip install PyPerceptron
     
 ## Example
+
+Here's how to instanitate the Perceptron
+
+```python
+from Perceptron.perceptron import Perceptron
+
+p = Perceptron(number_inputs, learning_rate, Activation_fn, Loss_fn)
+```
     
 ```python
-from src.perceptron import Perceptron
-from src.functions.activationFunctions.heaviside import Heaviside
-from src.functions.lossFunctions.quadratic_loss import QuadraticLoss
+from Perceptron.perceptron import Perceptron
+from Perceptron.functions.activationFunctions.heaviside import Heaviside
+from Perceptron.functions.lossFunctions.quadratic_loss import QuadraticLoss
 
 dataset = [[2.7810836, 2.550537003, 0],
                [1.465489372, 2.362125076, 0],
@@ -32,7 +37,8 @@ dataset = [[2.7810836, 2.550537003, 0],
                [8.675418651, -0.242068655, 1],
                [7.673756466, 3.508563011, 1]]
 
-p = Perceptron(2, 0.1, Heaviside(), QuadraticLoss())
+
+p = Perceptron(2, 0.1, Heaviside(), QuadraticLoss()) # number of inputs, learning rate, activation function, loss funciton
 p.train(dataset, 3, 30)
 
 for d in dataset:

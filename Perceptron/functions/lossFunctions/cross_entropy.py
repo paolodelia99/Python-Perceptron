@@ -1,5 +1,4 @@
-from src.functions.function import Function
-import numpy as np
+from Perceptron.functions.function import Function
 import math
 from typing import Tuple
 

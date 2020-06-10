@@ -1,5 +1,5 @@
 import numpy as np
-from src.functions.function import Function
+from Perceptron.functions.function import Function
 
 
 class Sigmoid(Function):

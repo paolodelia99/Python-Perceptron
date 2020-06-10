@@ -1,11 +1,11 @@
 import nose
-from src.functions.activationFunctions.sgn import Sign
-from src.functions.activationFunctions.heaviside import Heaviside
-from src.functions.activationFunctions.indentity import Identity
-from src.functions.activationFunctions.sigmoid import Sigmoid
-from src.functions.activationFunctions.relu import ReLU
-from src.functions.activationFunctions.softmax import SoftMax
-from src.functions.function import Function
+from Perceptron.functions.activationFunctions.sgn import Sign
+from Perceptron.functions.activationFunctions.heaviside import Heaviside
+from Perceptron.functions.activationFunctions.indentity import Identity
+from Perceptron.functions.activationFunctions.sigmoid import Sigmoid
+from Perceptron.functions.activationFunctions.relu import ReLU
+from Perceptron.functions.activationFunctions.softmax import SoftMax
+from Perceptron.functions.function import Function
 import numpy as np
 
 
