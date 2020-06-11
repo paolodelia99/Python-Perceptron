@@ -19,6 +19,7 @@ test_tf.py
 
 PyPerceptron.egg-info
 
+# build and dist folder
 dist
 build
 
