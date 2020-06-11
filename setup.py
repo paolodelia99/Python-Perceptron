@@ -27,7 +27,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
     name='PyPerceptron',
     packages=create_pgk_list('Perceptron'),
-    version='1.0.1',
+    version='1.0.2',
     license='MIT',
     description='A python implementation of the build block of the Neural Network, The Perceptron',
     long_description=long_description,
