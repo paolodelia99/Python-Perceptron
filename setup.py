@@ -39,6 +39,11 @@ setup(
     install_requires=[
         'numpy',
     ],
+    extras_require={
+        'dev': [
+            'pytest'
+        ]
+    },
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',

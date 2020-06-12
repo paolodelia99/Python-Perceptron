@@ -184,6 +184,12 @@ The loss functions already included in the package are:
 - Quadratic Loss
 - Cross Entropy Loss
 
+## Test 
+
+In order to run the test, run the following script on the command line
+
+    python -m pytest
+
 ## Contributing
 
 Feel free report issues and contribute to the project, making it better.

@@ -5,6 +5,9 @@ from Perceptron.functions.activationFunctions.indentity import Identity
 from Perceptron.functions.activationFunctions.sigmoid import Sigmoid
 from Perceptron.functions.activationFunctions.relu import ReLU
 from Perceptron.functions.activationFunctions.softmax import SoftMax
+from Perceptron.functions.activationFunctions.tanh import Tanh
+from Perceptron.functions.activationFunctions.leaky_relu import LeakyReLU
+from Perceptron.functions.activationFunctions.smooth_relu import SmoothReLU
 from Perceptron.functions.function import Function
 import numpy as np
 
@@ -64,8 +67,39 @@ def test_relu():
 
 
 def test_softmax():
+    """Test the softmax function"""
     fn = SoftMax()
     nose.tools.assert_is_instance(fn, Function)
     nose.tools.assert_is_instance(fn, SoftMax)
     np.allclose(fn.compute(np.array([1, 2, 3, 4, 1, 2, 3])),
                 np.array([0.024, 0.064, 0.175, 0.475, 0.024, 0.064, 0.175]))
+
+
+def test_tanh():
+    """Test the tanh function"""
+    fn = Tanh()
+    nose.tools.assert_is_instance(fn, Function)
+    nose.tools.assert_is_instance(fn, Tanh)
+    nose.tools.assert_equals(fn.compute(0), 0)
+    nose.tools.assert_equals(fn.compute_derivative(0), 1)
+
+
+def test_leaky_relu():
+    """Test the leaky ReLU function"""
+    fn = LeakyReLU()
+    nose.tools.assert_is_instance(fn, LeakyReLU)
+    nose.tools.assert_is_instance(fn, Function)
+    nose.tools.assert_equals(fn.compute(0), 0)
+    nose.tools.assert_equals(fn.compute(1), 1)
+    nose.tools.assert_equals(fn.compute(-1), -0.01)
+    nose.tools.assert_equals(fn.compute_derivative(1), 1)
+    nose.tools.assert_equals(fn.compute_derivative(-2), 0.01)
+
+
+def test_smooth_relu():
+    """Test the leaky ReLU function"""
+    fn = SmoothReLU()
+    nose.tools.assert_is_instance(fn, SmoothReLU)
+    nose.tools.assert_is_instance(fn, Function)
+    nose.tools.assert_equals(fn.compute(0), 0.6931471805599453)
+    nose.tools.assert_equals(fn.compute_derivative(0), 0.5)
