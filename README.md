@@ -2,6 +2,8 @@
 
 ![language](https://img.shields.io/badge/language-python-blue)
 ![license](https://img.shields.io/badge/license-MIT-orange)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 
 An Basic implementation of the perceptron, the build block a neural net.
 

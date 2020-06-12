@@ -71,8 +71,10 @@ def test_softmax():
     fn = SoftMax()
     nose.tools.assert_is_instance(fn, Function)
     nose.tools.assert_is_instance(fn, SoftMax)
-    np.allclose(fn.compute(np.array([1, 2, 3, 4, 1, 2, 3])),
-                np.array([0.024, 0.064, 0.175, 0.475, 0.024, 0.064, 0.175]))
+    np.allclose(
+        fn.compute(np.array([1, 2, 3, 4, 1, 2, 3])),
+        np.array([0.024, 0.064, 0.175, 0.475, 0.024, 0.064, 0.175]),
+    )
 
 
 def test_tanh():

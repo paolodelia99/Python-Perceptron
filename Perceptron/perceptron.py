@@ -47,12 +47,23 @@ class Perceptron(object):
         """
         # Check if the activation function is differentiable
         if self.act_fn.is_diff:
-            x1 = x[0:self.no_input]
             self.weights = [
-                i + ((self.lr / n) * error * self.act_fn.compute_derivative(np.dot(self.weights, x[0:self.no_input])) * j)
-                for i, j in zip(self.weights, x[0:self.no_input+1])]
+                i
+                + (
+                    (self.lr / n)
+                    * error
+                    * self.act_fn.compute_derivative(
+                        np.dot(self.weights, x[0 : self.no_input])
+                    )
+                    * j
+                )
+                for i, j in zip(self.weights, x[0 : self.no_input + 1])
+            ]
         else:
-            self.weights = [i + (self.lr / n) * error * j for i, j in zip(self.weights, x[0:self.no_input])]
+            self.weights = [
+                i + (self.lr / n) * error * j
+                for i, j in zip(self.weights, x[0 : self.no_input])
+            ]
 
     def update_mini_batch(self, mini_batch):
         """
@@ -62,7 +73,7 @@ class Perceptron(object):
         :param mini_batch the mini batch
         """
         for x in mini_batch:
-            prediction = self.evaluate(x[0: len(self.weights)])
+            prediction = self.evaluate(x[0 : len(self.weights)])
             error = self.loss_fn.compute_derivative((x[-1], prediction))
             self.bias = self.bias + self.lr / len(mini_batch) * error  # update the bias
             self.update_weights(x, error, len(mini_batch))  # update the weights
@@ -82,7 +93,7 @@ class Perceptron(object):
             # randomize the training data and create mini_batches
             random.shuffle(training_data)
             mini_batches = [
-                training_data[k:k + mini_batches_size]
+                training_data[k : k + mini_batches_size]
                 for k in range(0, n, mini_batches_size)
             ]
 

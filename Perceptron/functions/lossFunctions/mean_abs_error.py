@@ -3,7 +3,6 @@ from typing import Tuple
 
 
 class MeanAbsErr(Function):
-
     def __init__(self):
         super(MeanAbsErr, self).__init__()
         self.is_diff = True

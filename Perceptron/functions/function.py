@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 
 class Function(ABC):
-
     def __init__(self):
         self.is_diff = None
 
